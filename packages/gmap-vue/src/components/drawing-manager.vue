@@ -290,6 +290,9 @@ export default {
       google.maps.event.addListener(shape.overlay, 'click', () => {
         self.setSelection(shape);
       });
+      google.maps.event.addListener(shape.overlay, 'dragend', () => {
+        this.$emit('update:shapes', [...this.finalShapes]);
+      });
       google.maps.event.addListener(shape.overlay, 'rightclick', () => {
         self.deleteSelection();
       });
